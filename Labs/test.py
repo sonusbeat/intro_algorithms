@@ -1,13 +1,14 @@
-# ([1, 2, 3], [1, 3]),
-# ([1, 2, 3, 4], [1, 4]),
-# ([1, 2, 2, 2, 2, 2, 2, 3], [1, 3]),
-# ([7, 4], [7, 4]),
-# ([7], [7, 7]),
-# ([5, 2, 9], [5, 9]),
-# ([2, 3, 4, 1], [2, 1]),
+def sum67(nums):
+    switch = True
+    total = 0
+    for num in nums:
+        if num == 6 and switch == True:
+            switch = False
+            continue
+        if num == 7 and switch == False:
+            switch = True
+            continue
+        if switch == True:
+            total += num
 
-nums = [1, 2, 2, 2, 2, 2, 2, 3]
-
-result = [nums[0],nums[-1]]
-
-print(result)
+    return total

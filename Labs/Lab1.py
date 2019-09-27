@@ -48,9 +48,7 @@ def non_start(a, b):
     Given 2 strings, return their concatenation, except omit the first char of each.
     The strings will be at least length 1.
     """
-    a = a[1:len(a)]
-    b = b[1:len(b)]
-    return a + b
+    return a[1:len(a)] + b[1:len(b)]
 
 
 def left2(string):
