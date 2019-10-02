@@ -6,9 +6,25 @@
 # e.g. alist = [8, 1, 7, 5, 2, 4, 2, 9, 3, 6] the alist should be
 # changed to [1, 2, 5, 7, 8, 9, 6, 4, 3, 2]. This should work for other lists of course.
 
-
 def sort_half(alist):
-    pass
+    for scan in range(len(alist)):
+        swapped = False
+        for j in range((len(alist) - 1) - scan):
+            if alist[j] > alist[j + 1]:
+                alist[j], alist[j + 1] = alist[j + 1], alist[j]
+                swapped = True
+
+    list_a = alist[0:len(alist) // 2]
+    list_b = alist[len(alist) // 2:]
+
+    for scan in range(len(list_b)):
+        swapped = False
+        for j in range((len(list_b) - 1) - scan):
+            if list_b[j] < list_b[j + 1]:
+                list_b[j], list_b[j + 1] = list_b[j + 1], list_b[j]
+                swapped = True
+
+    return list_a + list_b
 
 
 # Suppose two lists A and B have already been sorted.
@@ -20,7 +36,19 @@ def sort_half(alist):
 
 
 def merge_two(A, B):
-    pass
+    i = 0
+    j = 0
+    merged = []
+
+    while i < len(A) and j < len(B):
+        if A[i] < B[j]:
+            merged.append(A[i])
+            i += 1
+        else:
+            merged.append(B[j])
+            j += 1
+
+    return merged + A[i:] + B[j:]
 
 
 # Write a program to replace all negative values in a list
@@ -28,6 +56,11 @@ def merge_two(A, B):
 # then mylist should be changed to [2, 5, 0, 3, 7, 0, 8]. This
 # should of course work for other lists.
 
-
 def replace_negative(mylist):
-    pass
+    i = 0
+    while i < len(mylist):
+        if mylist[i] < 0:
+            mylist[i] = 0
+        i += 1
+
+    return mylist
